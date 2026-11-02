@@ -1,3 +1,8 @@
+
+# 이진탐색(binary search)
+## 전제조건: 정렬된 배열일때
+
+''' python
 import sys
 def binary_search(start, end, find, arr):
     if start > end:
@@ -11,11 +16,28 @@ def binary_search(start, end, find, arr):
     else:
         return binary_search(start, mid - 1, find, arr)
     
-n = int(sys.stdin.readline()) # int(input())
-arr = list(map(int, sys.stdin.readline().split())) # list(map(int, input().split()))
+n = int(sys.stdin.readline()) --> int(input())
+arr = list(map(int, sys.stdin.readline().split())) -->  list(map(int, input().split()))
 
 find_n = int(sys.stdin.readline())
 find_arr = list(map(int, sys.stdin.readline().split()))
 
 for i in range(find_n):
     print(binary_search(0, n - 1, find_arr[i], arr) + 1)
+'''
+
+
+# 리스트 복사방법
+
+1. 얇은 복사
+
+a = [1,2,3,4,5,6,7]
+b = a --> a와 b는 같은곳을 바라보고 있는 리스트 (a가 변경되면 b도 같이 변경됨)
+b[2] = 10
+print(a)
+
+2. 깊은 복사
+a = [1,2,3,4,5,6]
+b = list(a) --> a와 b는 서로 독립적인 리스트 (a가 변경되어도 b는 변경되지 않음)
+b[2] = 10
+print(a)
